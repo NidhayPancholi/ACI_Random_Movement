@@ -4,10 +4,12 @@ import heapq
 import matplotlib.pyplot as plt
 
 class Node:
-    def __init__(self, x, y, z):
+    def __init__(self, x, y, z, terrain_type='normal'):
         self.position = (x, y, z)
         self.visits = 0
         self.connections = []
+        self.terrain_type = terrain_type
+        self.temperature = random.uniform(20, 35)  # in Celsius
 
     def add_connection(self, node):
         self.connections.append(node)
@@ -28,14 +30,22 @@ class Grid3D:
     def get_node(self, position):
         return self.nodes.get(position)
 
-    def get_weighted_random_node(self):
-        k = 3
+    def get_weighted_random_node(self, dragon):
         nodes = list(self.nodes.values())
-        total_visits = sum(node.visits for node in nodes)
-        if total_visits == 0:
-            return random.choice(nodes)
-        probabilities = [(node.visits + k) / (total_visits + len(nodes) * k) for node in nodes]
-        return np.random.choice(nodes, p=probabilities)
+        weights = []
+        for node in nodes:
+            weight = (node.visits + 1) * self.terrain_weight(node, dragon)
+            weights.append(weight)
+        return random.choices(nodes, weights=weights)[0]
+
+    def terrain_weight(self, node, dragon):
+        if node.terrain_type == 'basking' and dragon.needs_basking():
+            return 5
+        elif node.terrain_type == 'water' and dragon.is_thirsty():
+            return 4
+        elif node.terrain_type == 'hiding' and dragon.is_tired():
+            return 3
+        return 1
 
     def dijkstra(self, start, goal):
         queue = [(0, start)]
@@ -63,21 +73,37 @@ class Grid3D:
 
         return []
 
-class Animal:
+class KomodoDragon:
     def __init__(self, grid, start_node):
         self.grid = grid
         self.current_node = start_node
+        self.energy = 100
+        self.last_basking_time = 0
+        self.last_drinking_time = 0
 
-    def move(self):
-        next_node = self.grid.get_weighted_random_node()
+    def move(self, current_time):
+        self.energy -= 1
+        next_node = self.grid.get_weighted_random_node(self)
         path = self.grid.dijkstra(self.current_node, next_node)
-        for index,node in enumerate(path):
-            #print(f"Animal moved to {node.position}")
-            node.visits += index/len(path)
+        for index, node in enumerate(path):
+            node.visits += (index + 1) / len(path)
+            if node.terrain_type == 'basking':
+                self.last_basking_time = current_time
+                self.energy = min(100, self.energy + 10)
+            elif node.terrain_type == 'water':
+                self.last_drinking_time = current_time
         self.current_node = next_node
 
+    def needs_basking(self):
+        return self.energy < 50
 
-def plot_heatmap(grid, edges, iteration):
+    def is_thirsty(self):
+        return self.last_drinking_time > 100
+
+    def is_tired(self):
+        return self.energy < 30
+
+def plot_heatmap(grid, edges, iteration, dragons):
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
 
@@ -98,6 +124,10 @@ def plot_heatmap(grid, edges, iteration):
         z_vals = [pos1[2], pos2[2]]
         ax.plot(x_vals, y_vals, z_vals, color='gray')
 
+    # Add plotting of dragon positions
+    for dragon in dragons:
+        ax.scatter(*dragon.current_node.position, color='green', s=200, marker='*')
+
     ax.set_xlabel('X')
     ax.set_ylabel('Y')
     ax.set_zlabel('Z')
@@ -115,7 +145,17 @@ node_positions = [
     (0, 4, 2), (0, 3, 2), (0, 2, 2), (0, 1, 2)
 ]
 
+terrain_types = {
+    (0, 0, 0): 'basking',
+    (2, 2, 2): 'water',
+    (4, 4, 2): 'hiding',
+    # Add more terrain types as needed
+}
+
 grid = Grid3D(node_positions)
+for pos, terrain in terrain_types.items():
+    if pos in grid.nodes:
+        grid.nodes[pos].terrain_type = terrain
 
 # Ensure the graph is connected by adding edges
 edges = [
@@ -132,13 +172,13 @@ edges = [
 for edge in edges:
     grid.connect_nodes(*edge)
 
-animal = Animal(grid, grid.get_node((0, 0, 0)))
+dragons = [KomodoDragon(grid, grid.get_node((0, 0, 0))) for _ in range(3)]
 
 total_iterations = 10000
-plot_interval = total_iterations // 10  # 20% intervals
+plot_interval = total_iterations // 10
 
 for i in range(total_iterations):
-    animal.move()
+    for dragon in dragons:
+        dragon.move(i)
     if (i + 1) % plot_interval == 0:
-        plot_heatmap(grid, edges, i + 1)
-
+        plot_heatmap(grid, edges, i + 1, dragons)
