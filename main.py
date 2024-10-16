@@ -16,12 +16,8 @@ class Node:
         return self.position < other.position
 
 class Grid3D:
-    def __init__(self, size_x, size_y, size_z):
-        self.nodes = {}
-        for x in range(size_x):
-            for y in range(size_y):
-                for z in range(size_z):
-                    self.nodes[(x, y, z)] = Node(x, y, z)
+    def __init__(self, node_positions):
+        self.nodes = {pos: Node(*pos) for pos in node_positions}
 
     def connect_nodes(self, pos1, pos2):
         node1 = self.nodes[pos1]
@@ -38,8 +34,7 @@ class Grid3D:
         total_visits = sum(node.visits for node in nodes)
         if total_visits == 0:
             return random.choice(nodes)
-        weights = [1 / (node.visits + k) for node in nodes]
-        probabilities = [weight / sum(weights) for weight in weights]
+        probabilities = [(node.visits + k) / (total_visits + len(nodes) * k) for node in nodes]
         return np.random.choice(nodes, p=probabilities)
 
     def dijkstra(self, start, goal):
@@ -76,60 +71,74 @@ class Animal:
     def move(self):
         next_node = self.grid.get_weighted_random_node()
         path = self.grid.dijkstra(self.current_node, next_node)
-        for node in path:
-            print(f"Animal moved to {node.position}")
-            node.visits += 1
+        for index,node in enumerate(path):
+            #print(f"Animal moved to {node.position}")
+            node.visits += index/len(path)
         self.current_node = next_node
 
-grid = Grid3D(5, 5, 5)
-grid.connect_nodes((0, 0, 0), (0, 0, 1))
-grid.connect_nodes((0, 0, 1), (0, 0, 2))
-grid.connect_nodes((0, 0, 2), (0, 1, 2))
-grid.connect_nodes((0, 1, 2), (1, 1, 2))
-grid.connect_nodes((1, 1, 2), (1, 1, 1))
-grid.connect_nodes((1, 1, 1), (1, 1, 0))
-grid.connect_nodes((1, 1, 0), (1, 0, 0))
-grid.connect_nodes((1, 0, 0), (1, 0, 1))
 
-# Add more connections
-grid.connect_nodes((1, 0, 1), (2, 0, 1))
-grid.connect_nodes((2, 0, 1), (2, 1, 1))
-grid.connect_nodes((2, 1, 1), (2, 1, 2))
-grid.connect_nodes((2, 1, 2), (3, 1, 2))
-grid.connect_nodes((3, 1, 2), (3, 2, 2))
-grid.connect_nodes((3, 2, 2), (4, 2, 2))
-grid.connect_nodes((4, 2, 2), (4, 3, 2))
-grid.connect_nodes((4, 3, 2), (4, 4, 2))
-grid.connect_nodes((4, 4, 2), (3, 4, 2))
-grid.connect_nodes((3, 4, 2), (2, 4, 2))
-grid.connect_nodes((2, 4, 2), (1, 4, 2))
-grid.connect_nodes((1, 4, 2), (0, 4, 2))
-grid.connect_nodes((0, 4, 2), (0, 3, 2))
-grid.connect_nodes((0, 3, 2), (0, 2, 2))
-grid.connect_nodes((0, 2, 2), (0, 1, 2))
+def plot_heatmap(grid, edges, iteration):
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
+
+    x = [node.position[0] for node in grid.nodes.values()]
+    y = [node.position[1] for node in grid.nodes.values()]
+    z = [node.position[2] for node in grid.nodes.values()]
+    visits = [node.visits for node in grid.nodes.values()]
+
+    # Increase the size of the nodes
+    sc = ax.scatter(x, y, z, c=visits, cmap='hot', marker='o', s=100)
+    plt.colorbar(sc, ax=ax, label='Number of Visits')
+
+    # Plotting the edges
+    for edge in edges:
+        pos1, pos2 = edge
+        x_vals = [pos1[0], pos2[0]]
+        y_vals = [pos1[1], pos2[1]]
+        z_vals = [pos1[2], pos2[2]]
+        ax.plot(x_vals, y_vals, z_vals, color='gray')
+
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.set_zlabel('Z')
+    ax.set_title(f'3D Heatmap of Node Visits with Edges (Iteration {iteration})')
+
+    plt.show()
+
+
+# Example usage
+node_positions = [
+    (0, 0, 0), (0, 0, 1), (0, 0, 2), (0, 1, 2), (1, 1, 2),
+    (1, 1, 1), (1, 1, 0), (1, 0, 0), (1, 0, 1), (2, 0, 1),
+    (2, 1, 1), (2, 1, 2), (3, 1, 2), (3, 2, 2), (4, 2, 2),
+    (4, 3, 2), (4, 4, 2), (3, 4, 2), (2, 4, 2), (1, 4, 2),
+    (0, 4, 2), (0, 3, 2), (0, 2, 2), (0, 1, 2)
+]
+
+grid = Grid3D(node_positions)
+
+# Ensure the graph is connected by adding edges
+edges = [
+    ((0, 0, 0), (0, 0, 1)), ((0, 0, 1), (0, 0, 2)), ((0, 0, 2), (0, 1, 2)),
+    ((0, 1, 2), (1, 1, 2)), ((1, 1, 2), (1, 1, 1)), ((1, 1, 1), (1, 1, 0)),
+    ((1, 1, 0), (1, 0, 0)), ((1, 0, 0), (1, 0, 1)), ((1, 0, 1), (2, 0, 1)),
+    ((2, 0, 1), (2, 1, 1)), ((2, 1, 1), (2, 1, 2)), ((2, 1, 2), (3, 1, 2)),
+    ((3, 1, 2), (3, 2, 2)), ((3, 2, 2), (4, 2, 2)), ((4, 2, 2), (4, 3, 2)),
+    ((4, 3, 2), (4, 4, 2)), ((4, 4, 2), (3, 4, 2)), ((3, 4, 2), (2, 4, 2)),
+    ((2, 4, 2), (1, 4, 2)), ((1, 4, 2), (0, 4, 2)), ((0, 4, 2), (0, 3, 2)),
+    ((0, 3, 2), (0, 2, 2)), ((0, 2, 2), (0, 1, 2))
+]
+
+for edge in edges:
+    grid.connect_nodes(*edge)
 
 animal = Animal(grid, grid.get_node((0, 0, 0)))
 
-for _ in range(10000):
+total_iterations = 10000
+plot_interval = total_iterations // 10  # 20% intervals
+
+for i in range(total_iterations):
     animal.move()
+    if (i + 1) % plot_interval == 0:
+        plot_heatmap(grid, edges, i + 1)
 
-
-
-# Plotting the 3D heatmap
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
-
-x = [node.position[0] for node in grid.nodes.values()]
-y = [node.position[1] for node in grid.nodes.values()]
-z = [node.position[2] for node in grid.nodes.values()]
-visits = [node.visits for node in grid.nodes.values()]
-
-sc = ax.scatter(x, y, z, c=visits, cmap='hot', marker='o')
-plt.colorbar(sc, ax=ax, label='Number of Visits')
-
-ax.set_xlabel('X')
-ax.set_ylabel('Y')
-ax.set_zlabel('Z')
-ax.set_title('3D Heatmap of Node Visits')
-
-plt.show()
