@@ -1,0 +1,435 @@
+CSC 591: Animal Centered Computing
+Prototype Exercise 3
+
+Team:
+Nidhay Pancholi (nrpancho)
+Romil Shah (rmshah3)
+Rushil Vegada (rvegada)
+Sahil Changlani (schangl)
+----------------------------------------------------------------------------------------------------
+Interactive Analysis
+    Automated Scent Dispenser System (ASDS)
+    (a) Taxonomic Classification
+Input Interfaces
+Sensor-Based Input:
+Motion Sensors: It detects movement and tracks the activity of Komodo dragons.
+Environmental Sensors: It monitors enclosure conditions (e.g., temperature, humidity).
+Characteristics:
+Non-contact, passive interaction ensures minimum disturbance to the animal.
+Continuous and real-time data collection.
+Output Interfaces
+Olfactory Interface:
+Scent dispensers (atomizers) emit fragrances dynamically.
+Spatial variety in olfactory stimuli is made possible by many dispensers.
+Characteristics:
+It offers environmental modification through non-visual feedback.
+It provides dynamic and variable intensity scent patterns, simulating natural conditions.
+Control Interfaces
+Staff Interface:
+Web-based remote monitoring and controlling system.
+Real-time parameter adjusting, such as time and intensity. 
+System Control:
+Operated by machine learning algorithms, adapting itself with dragon responses.
+Environmental Interfaces
+Habitat Integration:
+The dispensers are fixed inside the housing to simulate natural scent dispersal. 
+Its non-intrusive design accommodates animal - centered approaches. 
+Data Collection Interfaces
+Monitoring Systems:
+Records behavioral responses, movement patterns, and environmental conditions. 
+They provide analytics to optimize scent distribution according to preferences. 
+(b) Components & Psychophysics
+              Input Interfaces (Sensor-Based)
+Design Parameters:
+Motion Sensor (HC - SR501 PIR)
+Detection Range: 7 m
+Detection Angle: 120 degree
+Power: DC 5V
+
+Psychophysics Connection:
+Komodo dragons have well-developed chemosensory capabilities and can locate prey from a few kilometers away [1].
+
+Affordances
+Passive tracking does not disturb natural behavior..
+It allows continued monitoring without the awareness of dragons.
+
+Perceptances
+Dragons can move freely without any sense of monitoring equipments.
+System identifies both overt approaches and exploratory behaviors
+
+Output Interfaces (Olfactory)
+Design Parameters:
+Atomizer: Sonaer 2.4MHz Ultrasonic
+Droplet Size: 1-5 μm
+Flow Rate: 0-30 ml/hr (adjustable)
+Multiple dispenser locations
+
+Psychophysics Connection:
+Komodo dragons have a very developed vomeronasal organ and bifurcated tongue for chemical sensing [1]. The system is designed to match,
+The size of the particles their vomeronasal organs can detect. 
+Capable of sensing the chemical gradients with direction. 
+The patterns of natural scent dispersion they encounter while hunting. 
+
+Affordances
+Leaves detectable scent trails
+Allows natural foraging behaviors
+Environmental enrichment via scent pattern alteration. 
+
+Perceptances
+Dragons can smell and track scent gradients.
+System allows natural tongue-flicking exploratory behavior.
+Allow for directional sensing with their bifurcated tongue. 
+
+3. Data Collection Interfaces
+Design Parameters
+Tracking of behaviors
+Logging of responses
+Pattern analysis tools
+
+Psychophysics Connection
+Monitors and responds to Komodo dragons:
+Chemical sensing behaviors (tongue flicking)
+Movement patterns in reaction to scents
+Investigation durations and frequencies
+
+Affordances
+It grabs the natural behavioral responses. 
+Allows system to learn from dragon preferences
+It permits the analysis of behavioral patterns.
+
+Perceptances
+System adapts to individual dragon preferences.
+It learns the best scent presentation patterns. 
+It responds to behavioral indications of interest. 
+
+
+
+
+
+(c) Seven-stage analysis
+
+1. Foraging/Hunting Behavior
+At the goal formation stage, the Komodo dragon develops a goal to search the novel odor in the environment based on the instinctual pattern of hunting and eating that gets elicited by the smell released from a dispenser when in close proximity. The dragon  then moves to the planning stage, to locate the source of the scent by establishing an initial direction obtained through chemical signals received. During the specification stage, the dragon readies its sensory apparatus, especially its forked tongue, for maximum chemical detection and positions its body in an orientation most favorable to detecting the scent.
+
+During this execution stage, the dragon does its stereotypical tongue-flicking behavior to sample air particles and moves toward the increasing scent concentration. In the perception stage, the dragon perceives the scent particles via its highly developed vomeronasal organ and processes such chemical information from the environment. From then onwards, the dragon interprets sensory information: how strong the smell is and from which direction it comes, recognizing it as a possible prey or food stimulus. In this final evaluation stage of assessment, the dragon assesses whether the source of the smell is substantial enough to continue investigating and if its movements have brought it closer to the source.
+
+
+2. Environmental Navigation
+At the goal formation stage, the decision to move involves a choice in the mind of the Komodo dragon towards moving to other parts of the enclosure with a motivation of multiple scent sources spread over the area. The dragon then enters the planning stage by mentally mapping out its movement through the areas with scents and choosing which it will follow. In the specification stage, the best path through the enclosure is determined, and the dragon readies itself for investigative behavior.
+
+In the execution stage, the dragon will be moving within the available space according to the chosen scent trails while showing exploratory behavior. In the perception stage, the dragon perceives the differences in scent intensities among the zones and detects environmental changes as the dragon moves within the enclosure. The dragon further interprets this sensorial input by processing the spatial relationship of the scent sources and its location relative to the scent gradients. It is during the evaluation stage that a dragon decides whether its current position receives the stimuli it desires and also measures the success of its strategy for exploration.
+This interaction results in the dragon acting upon its environment to go in the odor-filled area.
+
+
+
+
+3. Learning Interaction
+At the goal formation stage, the Komodo dragon is in search of its preferred type of scent motivated by its increasing ability to recognize pattern characteristics linked with a rewarding experience. This goal is informed by the dragon's evolving knowledge of its olfactory environment. The dragon then goes on to the planning stage where it recalls any past successful investigation and selects an investigation strategy based on past experience. This really indicates that the dragon can actually learn and change its behavior with time.
+
+The dragon is positioning for possible scent investigation during this specification stage, showing that its interactions with the ASDS have refined its approach toward olfactory exploration. At the execution stage, the dragon will engage in learned patterns of investigation and carry out successful foraging behaviors honed through previous interactions with the system.
+Thus, during the stage of perception, the dragon identifies scent patterns that it recognizes as familiar and finds environmental cues linked to successful foraging. This means that the dragon has now improved in differentiating between and responding to certain olfactory stimuli. During the interpretation stage, the dragon interprets the sensory input by compiling current stimuli with past experiences and managing the success or failure of its investigations. This level showcases the mental strength of the dragon in remembering from previous instances and applying that to the present scenario.
+
+Finally, during the evaluation stage, the dragon assesses whether its behavior resulted in the desired outcome and updates its internal model of successful strategies. This final stage is critical to the continuous learning process since it allows the dragon to hone its approach to interacting with the ASDS over time.
+
+(d) Error Analysis
+1. Foraging/Hunting Behavior Errors
+Slips
+During the Execute stage, the dragon may miss scent particles due to environmental factors. The system responds by increasing the scent concentration and turning on dispensers in adjacent locations to create a steeper gradient for the dragon to pick up the scent detection at a nearby location once again, thus crossing the Gulf of Execution with more salient olfactory path.
+
+Mistakes
+Mistakes in the Interpret stage occur when the dragon misinterprets scent type or strength. The ASDS adjusts the scent profiles to make them more distinct from one another, creating more visible gradients for the dragon to investigate alternative sources and correct its interpretations. The system learns from these errors to further optimize its presentations in the future, improving the Gulf of Evaluation with clearer olfactory information.
+
+
+Mode Errors
+These mode errors result from the dragon trying to hunt while the system is under maintenance and affect the Perceive and Interpret stages. The ASDS slowly turns down scent outputs in advance of maintenance and maintains low-level background scents throughout, so the dragon is free to move into non-scent areas at will during maintenance. Following maintenance, scents are reintroduced gradually in a way that helps traverse both Gulfs by clearly communicating system state.
+
+
+Description Errors
+Description errors are when the dragon misinterprets the scent-reward relationship, thus affecting both the Goal Formation and Plan stages of the Cognitive Theory. The ASDS reduces difficult scent patterns and creates simple reward associations, increasing success rates for finding reward-associated scents. It initially presents direct scent-reward connections and then gradually increases the complexity of these connections. The approach thus bridges both Gulfs by making the scent-reward relationship more obvious and feedback on successful foraging behaviors clearer.
+
+2. Environmental Navigation Errors
+Slips
+During the Execute stage, the Komodo dragons might take wrong turns following the scent gradient. The ASDS adjusts by reinforcing the correct scented path and generating temporary "bridge" scents. This puts the dragon back on track, bridging the Gulf of Execution with clearer olfactory cues and the Gulf of Evaluation through immediate feedback on movement choices.
+
+Mistakes
+During the Plan stage, mistakes occur when dragons pick suboptimal paths between scent zones. To address this, ASDS increases the number of unique scent pathways and zone contrasts. Having done so, it helps the dragons find efficient routes and further solidifies the choices that worked, bridging the Gulf of Execution with easier-to-read cues for route planning and the Gulf of Evaluation by reinforcing optimal navigation.
+
+
+Mode Errors
+Mode errors are caused by dragons expecting scents in typically active zones at inappropriate times, thus impeding the Interpret stage. ASDS prevents this through providing stable daily routines and timely transitional cues before mode switches, thus supporting dragons in learning temporal patterns of scents and overcoming both Gulfs by being in sync with the dragon's internal rhythms.
+
+
+Description Errors
+Description Errors Description errors happen when dragons misinterpret zone boundaries. This will hurt the Goal Formation and Specify stages since ASDS gives clearer scent boundaries with gradual transition areas, allowing dragons to learn the characteristics in different zones by themselves through exploration of said zones. This bridges the Gulf of Execution by clarifying zone distinctions and the Gulf of Evaluation by providing feedback on transitions and enhancing spatial understanding.
+
+
+3. Learning Interaction Errors
+Slips
+During the Execution stage, the Komodo dragon might perform the right behaviors at the wrong time. The ASDS widens its reward windows and gives immediate feedback for partial success, so the dragon can retry within a longer time frame. The system, therefore, dynamically relaxes its timing requirements from success rates in bridging the Gulf of Execution to have a more relaxed time frame and the Gulf of Evaluation with more exacting feedback concerning timing.
+
+Mistakes
+During the Interpret stage, mistakes arise: The dragon associates wrong behaviors with rewards. ASDS makes behavior-reward connections clearer and reduces the complexity of reward patterns temporarily to guide the dragon to correct associations, increasing in complexity as understanding grows. This bridging helps to overcome the Gulf of Execution by simplifying required behaviors and the Gulf of Evaluation by making action-reward relationships clearer.
+
+
+Mode Errors
+Mode errors occur when the dragon applies learned behaviors in inappropriate contexts and so affects the Plan and Execute stages. ASDS arms its dragon with different contextual cues and distinct transition signals between modes. The system reinforces correct contextual responses, thus bridging both Gulfs by providing clearer cues as to the appropriateness of the behavior and reinforcing correct applications.
+
+
+Description Errors
+Description Mistakes Description errors typically indicate core misunderstandings of the interaction mechanism on the part of a dragon. The ASDS, therefore, goes back to basic training patterns and institutes step-by-step learning progressions, guiding the dragon through simplified interactions that reestablish correct knowledge. This bridges the Gulf of Execution by simplifying complex interactions and the Gulf of Evaluation through clearer feedback at each stage of the learning process.
+
+
+
+Smart Microclimate Zones
+
+(a) Taxonomic Classification
+
+       1. Input Interfaces
+Temperature Sensors
+Track the change in temperature across the enclosure in terms of hot and cold spots
+Determine points at which any one zone is too hot or too cold for comfort
+Contribute to establishing and maintaining thermal gradients for thermoregulation
+Provide data for analyzing the dragon's long-term preferences regarding temperature
+
+Humidity Sensors
+Monitor the humidity of a given area within the enclosure
+Provide access to adequate moisture levels regarding respiration comfort for the animal
+Help create microclimates to simulate various natural types of habitats
+Help prevent skin conditions by maintaining ideal humidity in the air.
+
+Presence Sensors
+Sense the location of the Komodo dragon in the enclosure.
+Track movement and preferences over time for zone-specific areas.
+Trigger system adaptive events upon dragon position.
+Help identify behavioral patterns that may be associated with environmental conditions.
+
+Characteristics
+Non-invasive Monitoring: Does not interfere with the animal's natural behavior while gathering data constantly.
+Continuous Collection of Data: Provides an accurate, up-to-the-moment summary of enclosure conditions.
+Real-time sensing capabilities allow the immediate response of the system to changes in conditions or behaviors of the dragon. 
+Passive interaction: The dragon does not interact directly with the technology and thus can behave quite naturally.
+
+
+       2. Output Interfaces
+
+Heating Elements (Ceramic infrared emitters)
+Provide basking spots with temperatures optimal for thermoregulation
+Provide areas of warmth that enable digestion and other metabolic functions
+Provide temperature gradient within enclosure where a temperature can be chosen
+Replicate natural sunlight warmth patterns during the day
+
+Cooling Systems (Ultrasonic misting)
+Control humidity levels in order to simulate environmental conditions found in nature
+Provide cooler areas allowing for thermoregulation and comfort
+Provide water for hydration and skin moistening
+Simulate natural rainfall or morning dew within the enclosure
+
+
+Substrate Heating (VE-300X2 Thermostat)
+Maintain optimal ground temperatures for belly heat
+Create warm areas for resting and digestion
+Eliminate cold spots in the enclosure floor
+Provide natural heating of the ground as if heated from the earth warmed by the sun
+
+Characteristics
+Dynamic Temperature Control: Real-time adjustments according to actual behavior/needs of the dragon
+Humidity Modification: Allows for different zones with different levels of moisture
+Zonal Environmental Adjustment: Allows creation of specific microclimates within one enclosure
+Spatially Distributed Climate Control: Ensures uniform distribution of heat and moisture inside the space.
+
+3. Control Interfaces
+The web-based monitoring dashboard provides an easy user interface for zoo people to interact with the system. Real-time data visualization gives a quick view of the present environmental condition and the behavior of Komodo dragons. It has parameter adjustment capabilities that help fine-tune system settings by staff as needed; further, remote access capabilities ensure monitoring and control are executed from anywhere, thereby enhancing operational flexibility.
+
+An AI-driven algorithm, which lies at the center of the autonomous control of the system, will use data gathered through sensors and automatically adjust the climate of the various zones. The use of behavioral pattern recognition will make the system intelligent enough to anticipate the needs and preferences of the Komodo dragon. This predictive environmental control makes the system proactive rather than reactive, thus possibly enhancing the welfare of the dragon by maintaining optimal conditions before the animal has even moved into a new zone.
+(b) Components & Psychophysics
+1. Environmental Sensing Components
+Temperature Sensors (TMP117)
+ Range: -55°C to +150°C
+Accuracy: ±0.1°C from -20°C to +50°C
+
+Psychophysics Connection
+Komodo dragons rely on accurate temperature control for thermoregulation. [2]
+UV and temperature exposure directly influences vitamin D3 production and behavior. [2]
+
+Affordances
+To constantly monitor the temperature
+Accurate readings within the dragon's comfort zone
+
+Perceptances
+Dragons detect the temperature gradient
+System maintains optimal thermal conditions for metabolic functioning
+
+2. Environmental Control Systems
+Heating Elements
+IR ceramic heat emitter 150W
+VE-300X2 substrate heating
+Multi-zone control
+
+Psychophysics Connection
+Dragons exhibit obvious thermoregulatory behaviors[2]
+Ambient temperature affects activity and physiological functions[2]
+
+Affordances
+Thermal gradient created for natural thermoregulation
+Opportunity to bask
+
+
+Perceptances
+Dragon to move in between zones of temperatures
+System to respond to behavioral preferences
+
+3. Movement Tracking System
+Presence Sensors (EKMB1301111K)
+Detection range: 12m
+Detection angle: 92° horizontal/vertical
+Ultra-low power consumption
+
+Psychophysics Connection
+Komodo dragons exhibit clear movement patterns dependent on thermoregulation [4]
+The capacity for locomotion in dragons has consequences for habitat use and behavior [4]
+
+Affordances
+Allows tracking without disturbance
+Enabling the animals to move naturally
+
+Perceptances
+Dragons roam freely without consciousness of observation
+System learns from preferential movements of dragons
+
+4. Humidity Control System
+Humidity Sensors (SHT35)
+Range: 0-100% RH
+Accuracy: ±1.5% RH
+
+Misting System
+MistKing Ultimate v5.0
+Output: 2 L/hour (adjustable)
+
+Psychophysics Connection
+Variations in humidity influence skin condition and overall health
+Natural environment and habitat conditions drive behavior
+
+Affordances
+Moisture level kept within adequate range
+Variation in microclimate is produced
+
+
+
+Perceptances
+Dragons can select preferred zones of humidity
+System will self-correct based on patterns of use
+
+5. Control Interface
+
+Staff Interface: the design parameters associated with that interface address human visual perception and cognitive processing. Most likely this interface utilizes color coding, graphs, intuitive controls to make complex data interpretable and actionable.
+
+AI System: Design parameters in AI systems here take into consideration physiological needs and behavioral patterns of the Komodo dragon. Sensors and actuators in this system are calibrated to detect and create environmental conditions within the range of its sensory capabilities and comfort zones.
+
+The research indicates that proper environmental conditions significantly impact Komodo dragon health, behavior, and reproductive success[6]. The system's ability to maintain precise environmental control while allowing natural behavioral expression meets these findings. The movement tracking and environmental control systems are of most importance for the support of thermoregulatory behaviors and locomotor patterns expressed by the dragons in nature[7].
+(c) Seven-stage analysis
+1. Thermoregulation Behavior
+This corresponds to the goal formation stage of the Komodo dragon's perception that its body needs to thermoregulate in response to physiological demands for optimal temperature. The dragon proceeds with the planning stage by specifying a desire to be in an appropriate temperature zone, comparing its current location against such a desired zone. During specification, the dragon specifies the direction of locomotion toward its preferred zone and readies itself for traversal of the thermal gradient presented by the system.
+
+During the execution stage, the dragon moves to the selected zone of temperature and either basks or cools itself. During the perception stage, the dragon perceives temperature changes through thermoreceptors and detects environmental conditions in the new zone. Further, the animal interprets the derived sensory input, which is the processing of whether the ambient temperature satisfies physiological needs and the evaluation of comfort level in the current zone. At this stage of evaluation, the dragon will examine whether the temperature lies within the best range for its present needs and choose whether it should move to another zone
+
+The User-Dragon interaction crosses the Gulf of Execution as it acts upon the environment in pursuit of optimal body temperature, and the Gulf of Evaluation when evaluating the effectiveness of the thermoregulation behavior, concerning physiological needs.
+
+
+
+
+2. Zone Exploration
+In the goal formation stage, the Komodo dragon decides to explore the available microclimates within its enclosure, driven by an innate need to map its environment. The dragon now proceeds to the planning phase, where it identifies the unexplored zones and decides on a sequence for exploring them. In the specification stage, the dragon chooses an area to research and plots how it will travel to that location.
+
+The execution stage consists of the active investigation by the dragon of the environmental conditions in different zones that it passes through. During the perception stage, the dragon detects temperature and humidity variations across zones, detects varied substrate conditions beneath its body. Further, the dragon makes an interpretation of this sensory input, elaborating in its mind the environmental information on mapping characteristics of the zones. It would then, at this stage, reassess in detail the suitability of each zone for different needs-basking, cooling, or resting-and refresh its mental map concerning the environment.
+
+This interaction bridges the Gulf of Execution, the dragon is acting to explore and understand its environment-and the Gulf of Evaluation in that it assesses the characteristics of each zone and its suitability in light of various physiological needs.
+
+3. Behavioral Adaptation
+During the goal formation stage, it is the aim of the Komodo dragon to identify the zones of preference through different activities. Its daily pattern of activity and physiological needs activate this process. It proceeds to the planning stage by identifying zones that best match its current behavioral needs and finding most appropriate timing for the usage of such zones. Specification stage involves selecting zone(s) to behave in particular activities such as basking, cooling down or resting, and to prepare for the transition to the zone.
+
+The execution consists of the dragon flying to the picked zone and behaving accordingly, such as basking for thermoregulation or retreating to a cooler zone for resting. This is followed by perception, a process through which the dragon continuously senses the environmental conditions of its chosen zone and detects changes in the microclimate. Then, the dragon interprets this sensory input, learning to associate certain zones with specific activities while working out each zone's characteristics. In the final stage of evaluation, the dragon assesses how well its choice of zone has satisfied its current needs and updates its behavioral patterns in light of the assessment.
+
+This interaction crosses the Gulf of Execution, because the dragon acts to choose and move between zones in need; it crosses the Gulf of Evaluation, where it evaluates the suitability of each zone for different activities and over time adjusts its behavior to best do so.
+
+
+
+
+(d) Error Analysis
+1. Thermoregulation Behavior Errors
+Slips 
+Within thermoregulation behavior interacting with the Smart Microclimate Zones system involve the commission of an error during the Execute stage, when a Komodo dragon incorrectly moves into a zone with the wrong temperature. The response would be that the system retains gradual temperature transitions between zones, immediate behavioral responses are tracked, and optimal temperature ranges are preserved in adjacent zones so the dragon could easily move into the correct zone if the error is realized. The system maintains sharp thermal gradients to guide navigation. This approach helps in bridging the Gulf of Execution through the provision of a forgiving environment for movement errors and the Gulf of Evaluation through the provision of immediate temperature feedback, which connects to the Perceive and Evaluate stages since the dragon recognizes the temperature mismatch.
+
+Mistakes 
+In this interaction are usually made at the Goal Formation and Plan stages, where the Komodo dragon picks up an inappropriate temperature zone given its current physiological needs. This would be mitigated through the system by monitoring time spent in potentially unsuitable conditions, adjusting adjacent zones to create more optimal gradients, and logging behavioral patterns for analysis. The response would allow the dragon to detect physiological discomfort and move it to a more suitable area. The system provides clear thermal alternatives, bridging the Gulf of Execution by offering multiple appropriate choices, and the Gulf of Evaluation by allowing the dragon to interpret environmental feedback and adjust its behavior accordingly.
+
+Mode errors 
+In the thermoregulation behavior can happen when the dragon expects certain temperature conditions during system maintenance, affecting the Interpret stage when the system state changes. It does offset this by maintaining minimal temperature changes during maintenance, giving gradual transitions where possible, and keeping at least one optimal zone available so that in periods of maintenance, the dragon can easily move to other zones. At these moments, the system maintains basic operability, thus supporting both the Gulf of Execution and Evaluation through the same environmental cues that feed into the Perceive stage as the dragon adapts to temporary changes.
+
+Description errors 
+Occur when the Komodo dragon fails to recognize zone differentiation, thus impacting the Plan and Specify stages of the interaction. The system does this by enhancing resolution of the temperature boundaries, adding environmental cues to each zone, and simplifying the pattern of thermal gradients. That way, the dragon receives distinct environmental signals while maintaining consistent characteristics for each zone. That helps in mending the Gulf of Execution by making zone distinctions more salient, and the Gulf of Evaluation by giving clearer feedback on zone transitions, hence the support of the understanding of the environment by the dragon and also connecting with the Goal Formation stage when he learns the purposes of different zones.
+
+2. Zone Exploration Errors
+Slips
+These slips can occur in zone exploration interaction with Smart Microclimate Zones when the Komodo dragon enters the zone during the environmental adjustment in the Execute stage. The system will stop the adjustments while maintaining a safe temperature range, allowing only gradual transitions. This lets the dragon move, if necessary, to more stable zones as the system adjusts itself gradually. By using this approach, the dragon crosses the Gulf of Execution to the Gulf of Evaluation safely by connecting to the Perceive stage, since he detected changes in his environment.
+
+Mistakes 
+Mistakes by the Komodo dragon take place during the Plan stage, where he constantly chooses suboptimal zones. The system then interprets this pattern of zone use, manipulates environmental parameters to favor optimally used zones, and updates the learning algorithms. It helps in making the optimal zones more appealing and enhances environmental cues. In the Gulf of Execution, the system's adaptation guides the dragon toward better choices while, in the Gulf of Evaluation, he learns from his experiences in the diverse zones and moves further to the stage of Evaluate.
+
+Mode errors 
+In the zone exploration can occur when the dragon incorrectly interprets conditions of the zone during daily cycles, influencing the interpretation stage. It mitigates this by following the same pattern every day, thereby making transitions in the environment predictable and signaling the imminence of a change until it fully materializes through gradual adjustments. This enables the dragon to adapt to regular patterns over time. Temporal consistency in the system serves to bridge both the Gulf of Execution and Evaluation, providing clear cues about environmental states that connect to the Perceive and Interpret stages as the dragon learns to anticipate daily cycles in the environment.
+
+Descriptional errors
+They arise when the Komodo dragon fails to understand the relationships between zones, affecting the Goal Formation and Plan stages of the interaction. Simplification of environmental patterns creates more distinct transitions between zones and enhances the defining characteristics within each zone, therefore allowing refinement in the approach of the proposed system to provide the dragon with an intuitive environmental layout with consistent zone characteristics. This will help bridge the Gulf of Execution by making the distinctions of zones more apparent and the Gulf of Evaluation by offering clearer feedback upon the transitions of zones, thereby supporting spatial understanding by the dragon and connecting to the Specify stage in its learning of spatial relationships within the enclosure.
+Recommendation
+
+Factor 
+ASDS
+Smart Microclimate Zones
+Severity of the problem being solved
+Moderate: Appeals to olfactory deprivation and enrichment of cognition. 
+High: Appeals to basic thermoregulation needs essential to health in general
+Consent
+Good: Dragons may elect to participate with odors or not
+Excellent: Allows for a broader range of environmental choices
+Welfare
+Good: Improves cognitive enrichment and natural behaviors
+Excellent: Has a direct effect on physical comfort and supports natural thermoregulation
+Ease of Implementation
+Easier: Hardware is less invasive, installation more straightforward
+More Difficult: Dependent on pervasive environmental control systems
+Budget
+More affordable: Low initial and operational costs; 
+More expensive: High initial, possibly high energy use; 
+Data Collection
+Good: Provides insight into scent preferences and associated behaviours. 
+Excellent: Full data on preferred environmental conditions and associated behaviours;
+Long term adaptability
+Moderate: Scent patterns can be altered over time. 
+High: AI-driven system can optimize continuously based on learned preferences.
+
+
+
+
+Overall, while the ASDS has ease of implementation and budget advantages, the Smart Microclimate Zones system appears to address more critical aspects of Komodo dragon care and offers better long-term benefits. However, an ideal solution would be to integrate both systems to provide a comprehensive approach to Komodo dragon welfare in captivity.
+
+
+
+Citations
+[1] Lind, A. L., Lai, Y. Y., Mostovoy, Y., et al. (2019). Genome of the Komodo dragon reveals adaptations in the cardiovascular and chemosensory systems of monitor lizards. Nature Ecology & Evolution, 3(8), 1241. https://doi.org/10.1038/s41559-019-0945-8
+
+[2] Wood, M. N., Soltis, J., Sullivan, K. E., et al. (2023). UV irradiance effects on Komodo dragon (Varanus komodoensis) vitamin D3, egg production, and behavior: A case study. Zoo Biology, 42(5), 683–692. https://doi.org/10.1002/zoo.21801
+
+[3] Kępa, M., Tomańska, A., Staszewska, J., et al. (2023). Functional anatomy of the thoracic limb of the Komodo dragon (Varanus komodoensis). Animals (Basel).
+
+[4] Lind, A. L., Lai, Y. Y., Mostovoy, Y., et al. (2019). Genome of the Komodo dragon reveals adaptations in the cardiovascular and chemosensory systems of monitor lizards. Nature Ecology & Evolution.
+
+[5] Mancini, C., Hirsch-Matsioulas, O., & Metcalfe, D. (2022). Politicising animal-computer interaction: An approach to political engagement with animal-centred design. Proceedings of the Ninth International Conference on Animal-Computer Interaction.
+
+[6] Schumann, I., & Triphan, T. (2020). The PEDtracker: An automatic staging approach for Drosophila melanogaster larvae. Frontiers in Behavioral Neuroscience, 14, 612313. https://doi.org/10.3389/fnbeh.2020.612313
+
+[7] Randon, M., Dowd, M., & Joy, R. (2022). A real-time data assimilative forecasting system for animal tracking. Ecology.
+
+[8] Fabarisov, T., Naik, V. G., Attar, A. A., & Morozov, A. (2023). Remedy: Automated design and deployment of hybrid deep learning-based error detectors. IECON 2023—49th Annual Conference of the IEEE Industrial Electronics Society, 1–8.
+
+[9] Ames, D. P., Quinn, N. W., Rizzoli, A. E., et al. (2023). International Environmental Modelling and Software Society. 7th International Congress on Environmental Modelling and Software.
+
